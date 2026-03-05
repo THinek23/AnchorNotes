@@ -1,0 +1,7 @@
+<!-- app/src/main/res/values/colors.xml -->
+<resources>
+    <color name="pinBlue">#D6ECFF</color>
+    <color name="toolbarGray">#F2F2F2</color>
+    <color name="actionText">#64748B</color>
+    <color name="actionTextSelected">#1E293B</color>
+</resources>

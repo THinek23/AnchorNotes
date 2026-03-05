@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Anchor</string>
+    <string name="checklist">Checklist</string>
+    <string name="add">+ Add</string>
+    <string name="file">📎 File</string>
+    <string name="place">📍 Place</string>
+    <string name="time">⏰ Time</string>
+    <string name="list">✓ List</string>
+    <string name="tags">🏷️ Tags</string>
+    <string name="pin">📌 Pin</string>
+    <string name="back">←</string>
+    <string name="save">Save</string>
+    <string name="x">✕</string>
+    <string name="san_francisco_ca">San Francisco, CA</string>
+    <string name="location">Location</string>
+    <string name="pinned">📌</string>
+    <string name="pinned_note">Pinned note</string>
+</resources>

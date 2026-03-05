@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/attachmentThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="Attachment thumbnail"
+        android:background="#EEEEEE" />
+
+    <!-- Audio player overlay - shown for audio attachments -->
+    <FrameLayout
+        android:id="@+id/audioPlayerOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#80000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="false"
+            android:focusable="false">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎵"
+                android:textSize="48sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/audioDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Audio"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/audioPlayButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_media_play"
+            android:contentDescription="Play audio"
+            android:background="#FFFFFF"
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:elevation="12dp"
+            android:translationZ="12dp"
+            app:tint="#000000" />
+
+    </FrameLayout>
+
+</FrameLayout>
+
+

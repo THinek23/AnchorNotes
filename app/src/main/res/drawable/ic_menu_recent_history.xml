@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Clock circle -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#5F6368"
+        android:strokeWidth="2"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10s10,-4.48 10,-10S17.52,2 12,2z"/>
+
+    <!-- Clock hands -->
+    <!-- Hour hand pointing to 10 -->
+    <path
+        android:strokeColor="#1A73E8"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M12,12 L9.5,9.5"/>
+
+    <!-- Minute hand pointing to 2 -->
+    <path
+        android:strokeColor="#1A73E8"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M12,12 L15,8"/>
+
+    <!-- Center dot -->
+    <path
+        android:fillColor="#1A73E8"
+        android:pathData="M12,11c-0.55,0 -1,0.45 -1,1s0.45,1 1,1s1,-0.45 1,-1S12.55,11 12,11z"/>
+
+    <!-- Arrow indicating rotation/history -->
+    <path
+        android:strokeColor="#34A853"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M4,12 C4,7.58 7.58,4 12,4 C14.5,4 16.7,5.15 18.1,7 L18.1,7"/>
+
+    <!-- Arrow head -->
+    <path
+        android:fillColor="#34A853"
+        android:pathData="M16.5,6.5 L18.1,7 L17.6,8.5 Z"/>
+</vector>

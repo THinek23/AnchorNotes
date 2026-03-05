@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".NoteCreationActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbarGray"
+        app:elevation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbarGray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back"
+                    android:textSize="28sp"
+                    android:textColor="#1E293B"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/btnSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#6366F1"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Title -->
+            <EditText
+                android:id="@+id/noteTitleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Title"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#1E293B"
+                android:textColorHint="#CBD5E1"
+                android:inputType="textCapSentences"
+                android:maxLines="3"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F5F9"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Body Content -->
+            <EditText
+                android:id="@+id/noteBodyEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"
+                android:background="@android:color/transparent"
+                android:hint="Start typing..."
+                android:textSize="16sp"
+                android:textColor="#334155"
+                android:textColorHint="#CBD5E1"
+                android:gravity="start|top"
+                android:inputType="textMultiLine|textCapSentences"
+                android:lineSpacingExtra="4dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp" />
+
+            <!-- Checklist Section -->
+            <LinearLayout
+                android:id="@+id/checklistSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/checklist"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#64748B" />
+
+                    <TextView
+                        android:id="@+id/btnAddChecklistItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add"
+                        android:textSize="14sp"
+                        android:textColor="#6366F1"
+                        android:padding="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/checklistRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <!-- Attachments Section -->
+            <LinearLayout
+                android:id="@+id/attachmentsSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attachments"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#64748B"
+                    android:paddingBottom="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/attachmentsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <!-- Tags Section -->
+            <LinearLayout
+                android:id="@+id/tagsSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tags"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#64748B"
+                    android:paddingBottom="8dp" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/tagsChipGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacing="8dp" />
+            </LinearLayout>
+
+            <!-- Reminders Section -->
+            <LinearLayout
+                android:id="@+id/remindersSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <!-- Time Reminder -->
+                <LinearLayout
+                    android:id="@+id/timeReminderContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:background="#F8FAFC"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏰"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time Reminder"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="#1E293B" />
+
+                        <TextView
+                            android:id="@+id/timeReminderText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tomorrow at 2:00 PM"
+                            android:textSize="12sp"
+                            android:textColor="#64748B"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnRemoveTimeReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✕"
+                        android:textSize="20sp"
+                        android:textColor="#94A3B8"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless" />
+                </LinearLayout>
+
+                <!-- Geofence Reminder -->
+                <LinearLayout
+                    android:id="@+id/geofenceReminderContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:background="#F0FDF4"
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📍"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Location Reminder"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="#1E293B" />
+
+                        <TextView
+                            android:id="@+id/geofenceReminderText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Home (500m)"
+                            android:textSize="12sp"
+                            android:textColor="#64748B"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnRemoveGeofenceReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✕"
+                        android:textSize="20sp"
+                        android:textColor="#94A3B8"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Location Section (selected Place tag) -->
+            <LinearLayout
+                android:id="@+id/locationContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:background="#EFF6FF"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="12dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#1E293B" />
+
+                    <TextView
+                        android:id="@+id/locationText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/san_francisco_ca"
+                        android:textSize="12sp"
+                        android:textColor="#64748B"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnRemoveLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/x"
+                    android:textSize="20sp"
+                    android:textColor="#94A3B8"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Action Bar -->
+    <LinearLayout
+        android:id="@+id/bottomActionBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:background="@color/toolbarGray"
+        android:elevation="8dp"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/btnPin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📌\nPin"
+            android:textSize="14sp"
+            android:textColor="@color/actionText"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="6dp"
+            android:maxLines="2"
+            android:includeFontPadding="false"
+            android:ellipsize="none"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_action_item" />
+
+        <TextView
+            android:id="@+id/btnTags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/tags"
+            android:textSize="14sp"
+            android:textColor="@color/actionText"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="6dp"
+            android:maxLines="2"
+            android:includeFontPadding="false"
+            android:ellipsize="none"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_action_item" />
+
+        <TextView
+            android:id="@+id/btnChecklist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/list"
+            android:textSize="14sp"
+            android:textColor="@color/actionText"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="6dp"
+            android:maxLines="2"
+            android:includeFontPadding="false"
+            android:ellipsize="none"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_action_item" />
+
+        <TextView
+            android:id="@+id/btnReminder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/time"
+            android:textSize="14sp"
+            android:textColor="@color/actionText"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="6dp"
+            android:maxLines="2"
+            android:includeFontPadding="false"
+            android:ellipsize="none"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_action_item" />
+
+        <TextView
+            android:id="@+id/btnLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📍\nPlace"
+            android:textSize="14sp"
+            android:textColor="@color/actionText"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="6dp"
+            android:maxLines="2"
+            android:includeFontPadding="false"
+            android:ellipsize="none"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_action_item" />
+
+        <TextView
+            android:id="@+id/btnAttach"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/file"
+            android:textSize="14sp"
+            android:textColor="@color/actionText"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="6dp"
+            android:maxLines="2"
+            android:includeFontPadding="false"
+            android:ellipsize="none"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_action_item" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

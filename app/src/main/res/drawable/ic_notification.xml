@@ -1,0 +1,84 @@
+<!-- res/drawable/ic_notebook_colored.xml -->
+<!-- Colored notebook icon for app use (NOT for notifications) -->
+<!-- Use this in your app UI, dialogs, or as the launcher icon -->
+<!-- For notifications, use ic_notification.xml (white only) -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Notebook cover -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M6,2 L18,2 C19.1,2 20,2.9 20,4 L20,20 C20,21.1 19.1,22 18,22 L6,22 C4.9,22 4,21.1 4,20 L4,4 C4,2.9 4.9,2 6,2 Z" />
+
+    <!-- Inner page (lighter color) -->
+    <path
+        android:fillColor="#FFFAF0"
+        android:pathData="M7.5,4 L16.5,4 L16.5,20 L7.5,20 Z" />
+
+    <!-- Binding strip -->
+    <path
+        android:fillColor="#D84315"
+        android:pathData="M6,4 L8,4 L8,20 L6,20 Z" />
+
+    <!-- Spiral holes -->
+    <path
+        android:fillColor="#FFFAF0"
+        android:pathData="M6.5,6 C6.5,5.72 6.72,5.5 7,5.5 C7.28,5.5 7.5,5.72 7.5,6 C7.5,6.28 7.28,6.5 7,6.5 C6.72,6.5 6.5,6.28 6.5,6 Z" />
+
+    <path
+        android:fillColor="#FFFAF0"
+        android:pathData="M6.5,9 C6.5,8.72 6.72,8.5 7,8.5 C7.28,8.5 7.5,8.72 7.5,9 C7.5,9.28 7.28,9.5 7,9.5 C6.72,9.5 6.5,9.28 6.5,9 Z" />
+
+    <path
+        android:fillColor="#FFFAF0"
+        android:pathData="M6.5,12 C6.5,11.72 6.72,11.5 7,11.5 C7.28,11.5 7.5,11.72 7.5,12 C7.5,12.28 7.28,12.5 7,12.5 C6.72,12.5 6.5,12.28 6.5,12 Z" />
+
+    <path
+        android:fillColor="#FFFAF0"
+        android:pathData="M6.5,15 C6.5,14.72 6.72,14.5 7,14.5 C7.28,14.5 7.5,14.72 7.5,15 C7.5,15.28 7.28,15.5 7,15.5 C6.72,15.5 6.5,15.28 6.5,15 Z" />
+
+    <path
+        android:fillColor="#FFFAF0"
+        android:pathData="M6.5,18 C6.5,17.72 6.72,17.5 7,17.5 C7.28,17.5 7.5,17.72 7.5,18 C7.5,18.28 7.28,18.5 7,18.5 C6.72,18.5 6.5,18.28 6.5,18 Z" />
+
+    <!-- Paper lines -->
+    <path
+        android:strokeColor="#E0E0E0"
+        android:strokeWidth="0.8"
+        android:strokeLineCap="round"
+        android:pathData="M9.5,7.5 L15.5,7.5" />
+
+    <path
+        android:strokeColor="#E0E0E0"
+        android:strokeWidth="0.8"
+        android:strokeLineCap="round"
+        android:pathData="M9.5,10 L15.5,10" />
+
+    <path
+        android:strokeColor="#E0E0E0"
+        android:strokeWidth="0.8"
+        android:strokeLineCap="round"
+        android:pathData="M9.5,12.5 L15.5,12.5" />
+
+    <path
+        android:strokeColor="#E0E0E0"
+        android:strokeWidth="0.8"
+        android:strokeLineCap="round"
+        android:pathData="M9.5,15 L15.5,15" />
+
+    <path
+        android:strokeColor="#E0E0E0"
+        android:strokeWidth="0.8"
+        android:strokeLineCap="round"
+        android:pathData="M9.5,17.5 L14,17.5" />
+
+    <!-- Shadow/depth effect -->
+    <path
+        android:fillColor="#40000000"
+        android:pathData="M18,3 L18,21 L18.5,21 C19.33,21 20,20.33 20,19.5 L20,4.5 C20,3.67 19.33,3 18.5,3 Z" />
+
+</vector>

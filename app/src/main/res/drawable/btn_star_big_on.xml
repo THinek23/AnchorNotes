@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Star shape with gradient effect using two overlapping stars -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M12,2l3.09,6.26L22,9.27l-5,4.87L18.18,21L12,17.77L5.82,21L7,14.14L2,9.27l6.91,-1.01L12,2z"/>
+
+    <!-- Inner highlight for depth -->
+    <path
+        android:fillColor="#FFF4CC"
+        android:fillAlpha="0.5"
+        android:pathData="M12,4.5l2.32,4.7l5.18,0.75l-3.75,3.65l0.89,5.16L12,16.27l-4.64,2.44l0.89,-5.16l-3.75,-3.65l5.18,-0.75L12,4.5z"/>
+
+    <!-- Outer glow effect -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="0.5"
+        android:strokeAlpha="0.3"
+        android:fillColor="#00000000"
+        android:pathData="M12,2l3.09,6.26L22,9.27l-5,4.87L18.18,21L12,17.77L5.82,21L7,14.14L2,9.27l6.91,-1.01L12,2z"/>
+</vector>
